@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+#include "ShoppingCart.h"
 #include "ItemToPurchase.h"
 
 /* Type your code here */
