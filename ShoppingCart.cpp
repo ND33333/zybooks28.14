@@ -64,11 +64,14 @@ void ShoppingCart::PrintTotal(){
    
    cout<<customerName<<"'s Shopping Cart - "<<currentDate<<endl;
    cout<<"Number of Items: "<<total<<endl<<endl;
+   if(total==0){
+      cout<<"SHOPPING CART IS EMPTY"<<endl;
+   }
    for(int i=0; i<cartItems.size(); i++){
       cout<<cartItems.at(i).GetName()<<" "<<cartItems.at(i).GetQuantity()<<" @ $"<<cartItems.at(i).GetPrice()<<" = $"<<cartItems.at(i).GetPrice()*cartItems.at(i).GetQuantity()<<endl;
    }
    cout<<endl;
-   cout<<"Total: $"<<GetCostOfCart()<<endl;
+   cout<<"Total: $"<<GetCostOfCart()<<endl<<endl;
 }
 
    
@@ -76,6 +79,9 @@ void ShoppingCart::PrintTotal(){
 void ShoppingCart::PrintDescriptions(){
    cout<<customerName<<"'s Shopping Cart - "<<currentDate<<endl<<endl;
    cout<<"Item Descriptions"<<endl<<endl;
+   if(cartItems.size()==0){
+      cout<<"SHOPPING CART IS EMPTY"<<endl;
+   }
    for(int i=0; i<cartItems.size(); i++){
       cout<<cartItems.at(i).GetName()<<": "<<cartItems.at(i).GetDescription()<<endl;
    }
