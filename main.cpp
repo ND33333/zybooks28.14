@@ -27,26 +27,47 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
    }
    
    else if(option=='a'){
-      string name;
+      string name="";
       string description;
       int price;
       int quantity;
       cout<<"ADD ITEM TO CART"<<endl;
       cout<<"Enter the item name:"<<endl;
-      cin.ignore();
-      getline(cin, name);
+      do{
+         getline(cin, name);
+      }while(name=="");
       cout<<"Enter the item description:"<<endl;
       getline(cin, description);
       cout<<"Enter the item price:"<<endl;
       cin>>price;
       cout<<"Enter the item quantity:"<<endl<<endl;
       cin>>quantity;
-      ItemToPurchase item=ItemToPurchase(name, description, price, quantity);
-      theCart.AddItem(item);
+      ItemToPurchase mod=ItemToPurchase(name, description, price, quantity);
+      theCart.AddItem(mod);
    }
    else if(option=='d'){
+      string name;
+      cout<<"REMOVE ITEM FROM CART"<<endl;
+      cout<<"Enter name of item to remove:"<<endl;
+      do{
+         getline(cin, name);
+      }while(name=="");
+      theCart.RemoveItem(name);
+      cout<<endl;
    }
    else if(option=='c'){
+      string name;
+      int quantity;
+      cout<<"CHANGE ITEM QUANTITY"<<endl;
+      cout<<"Enter the item name:"<<endl;
+      do{
+         getline(cin, name);
+      }while(name=="");
+      cout<<"Enter the new quantity:"<<endl;
+      cin>>quantity;
+      ItemToPurchase mod=ItemToPurchase(name, "none", 0, quantity);
+      theCart.ModifyItem(mod);
+      cout<<endl;
    }
    else if(option=='i'){
       cout<<"OUTPUT ITEMS' DESCRIPTIONS"<<endl;

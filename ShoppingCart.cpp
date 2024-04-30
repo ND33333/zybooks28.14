@@ -37,9 +37,18 @@ void ShoppingCart::RemoveItem(string name){
 void ShoppingCart::ModifyItem(ItemToPurchase item){
    for(int i=0; i<cartItems.size(); i++){
       if (cartItems.at(i).GetName()==item.GetName()){
-         cartItems.at(i).SetDescription("none");
-         cartItems.at(i).SetPrice(0);
-         cartItems.at(i).SetQuantity(0);
+         if(item.GetName()!=""){
+            cartItems.at(i).GetName()=item.GetName();
+         }
+         if(item.GetDescription()!="none"){
+            cartItems.at(i).SetDescription(item.GetDescription());
+         }
+         if(item.GetPrice()!=0){
+            cartItems.at(i).SetPrice(item.GetPrice());
+         }
+         if(item.GetQuantity()!=0){
+            cartItems.at(i).SetQuantity(item.GetQuantity());
+         }
          return;
       }
    }
@@ -78,13 +87,14 @@ void ShoppingCart::PrintTotal(){
    
 void ShoppingCart::PrintDescriptions(){
    cout<<customerName<<"'s Shopping Cart - "<<currentDate<<endl<<endl;
-   cout<<"Item Descriptions"<<endl<<endl;
+   cout<<"Item Descriptions"<<endl;
    if(cartItems.size()==0){
       cout<<"SHOPPING CART IS EMPTY"<<endl;
    }
    for(int i=0; i<cartItems.size(); i++){
       cout<<cartItems.at(i).GetName()<<": "<<cartItems.at(i).GetDescription()<<endl;
    }
+   cout<<endl;
 }
    
    
