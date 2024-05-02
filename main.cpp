@@ -1,4 +1,4 @@
-/* https://github.com/ND33333/zybooks28.14
+/* https://github.com/ND33333/zybooks28.14.git
 Team: Nikoloz Baramidze */
 #include <iostream>
 #include <iomanip>
